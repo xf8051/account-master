@@ -9,8 +9,8 @@
 3.设置一个全局账户和密码，以及保护等级（一般0，强力1，绝对2），保护所有账户密码。
 
 4.若忘记全局账户的密码，则根据之前选的保护等级，进行不同的操作：
-  a 若选择的是一般等级，则会要求您输入数据库里的3个账户和密码，如果数据库里没有存入密码，则直接打开，若存入不够，输入全部正确则打开，输入错误一个则不会打开。（5次错误机会，错误机会用完永久死锁）
-  b 若选择的是强力等级，则会要求您输入数据库里属于最高的3个账户和密码，如果数据库里最高没有存入密码，或存入不够，依次降级要求输入账户密码，输入错误一个都不会打开。若无密码存入，直接打开（3次错误机会，错误机会用完永久死锁）
+  a 若选择的是一般等级，则会要求您输入数据库里的3个账户和密码，如果数据库里没有存入密码，则直接打开，若存入不够，输入全部正确则打开，输入错误一个则不会打开。（5次错误机会，错误机会用完将必须等24小时）
+  b 若选择的是强力等级，则会要求您输入数据库里属于最高的3个账户和密码，如果数据库里最高没有存入密码，或存入不够，依次降级要求输入账户密码，输入错误一个都不会打开。若无密码存入，直接打开（3次错误机会）
   c 若选择的是绝对等级，忘记则完蛋。
 
 5.设置全局热键，随意呼出，方便查看、录入账户密码。
@@ -19,17 +19,6 @@
 
 
 Ⅱ - 数据库结构大致雏形
-
-CREATE TABLE [am_users] (
-  [id] INT, 
-  [name] CHAR(32), 
-  [pwd] CHAR(32), 
-  [protect] INT DEFAULT (0), 
-  [condone] INT DEFAULT (0), 
-  [cur_condone] INT DEFAULT (0), 
-  [hotkey] INT DEFAULT (0), 
-  [time] INT DEFAULT (0), 
-  CONSTRAINT [sqlite_autoindex_am_users_1] PRIMARY KEY ([id]));
 
 CREATE TABLE [am_acount_cates] (
   [id] INT, 
@@ -53,4 +42,16 @@ CREATE TABLE [am_accounts] (
   [level] INT DEFAULT (0), 
   [time] INT DEFAULT (0), 
   CONSTRAINT [] PRIMARY KEY ([user], [myname]));
+
+CREATE TABLE [am_users] (
+  [id] INT, 
+  [name] CHAR(32), 
+  [pwd] CHAR(32), 
+  [protect] INT DEFAULT (0), 
+  [condone] INT DEFAULT (0), 
+  [cur_condone] INT DEFAULT (0), 
+  [err_time] INT DEFAULT (0), 
+  [hotkey] INT DEFAULT (0), 
+  [time] INT DEFAULT (0), 
+  CONSTRAINT [sqlite_autoindex_am_users_1] PRIMARY KEY ([id]));
 

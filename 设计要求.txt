@@ -1,5 +1,6 @@
-﻿Account Master 初步设计要求
+﻿Account Master
 
+Ⅰ - 初步设计要求
 
 1.记下用户输入的账户密码，是什么的账户，提供一个账户安全级选择（普通0，敏感1，最高2）。
 
@@ -15,3 +16,41 @@
 5.设置全局热键，随意呼出，方便查看、录入账户密码。
 
 6.呼出时简易识别下当前前台窗口标题，智能显示账户和密码，或者录入。
+
+
+Ⅱ - 数据库结构大致雏形
+
+CREATE TABLE [am_users] (
+  [id] INT, 
+  [name] CHAR(32), 
+  [pwd] CHAR(32), 
+  [protect] INT DEFAULT (0), 
+  [condone] INT DEFAULT (0), 
+  [cur_condone] INT DEFAULT (0), 
+  [hotkey] INT DEFAULT (0), 
+  [time] INT DEFAULT (0), 
+  CONSTRAINT [sqlite_autoindex_am_users_1] PRIMARY KEY ([id]));
+
+CREATE TABLE [am_acount_cates] (
+  [id] INT, 
+  [name] CHAR(64), 
+  [desc] CHAR(128), 
+  [type] CHAR(16), 
+  [url] CHAR(512), 
+  [time] INT DEFAULT (0), 
+  CONSTRAINT [] PRIMARY KEY ([id]));
+
+CREATE TABLE [am_acount_type] (
+  [name] CHAR(16), 
+  CONSTRAINT [] PRIMARY KEY ([name]));
+
+CREATE TABLE [am_accounts] (
+  [myname] CHAR(64), 
+  [account_name] CHAR(32), 
+  [account_pwd] CHAR(32), 
+  [cate] INT DEFAULT (0), 
+  [user] INT DEFAULT (0), 
+  [level] INT DEFAULT (0), 
+  [time] INT DEFAULT (0), 
+  CONSTRAINT [] PRIMARY KEY ([user], [myname]));
+

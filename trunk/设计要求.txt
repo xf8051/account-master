@@ -20,15 +20,6 @@
 
 Ⅱ - 数据库结构
 
-CREATE TABLE [am_acount_cates] (
-  [id] INT, 
-  [name] CHAR(64), 
-  [desc] CHAR(128), 
-  [type] CHAR(16), 
-  [url] CHAR(512), 
-  [time] INT DEFAULT (0), 
-  CONSTRAINT [] PRIMARY KEY ([id]));
-
 CREATE TABLE [am_acount_type] (
   [name] CHAR(16), 
   CONSTRAINT [] PRIMARY KEY ([name]));
@@ -55,4 +46,14 @@ CREATE TABLE [am_accounts] (
   [comment] CHAR(128), 
   [time] INT DEFAULT (0), 
   CONSTRAINT [sqlite_autoindex_am_accounts_1] PRIMARY KEY ([user], [myname]));
+
+CREATE TABLE [am_acount_cates] (
+  [id] INT, 
+  [name] CHAR(64), 
+  [desc] CHAR(128), 
+  [type] CHAR(16), 
+  [url] CHAR(512), 
+  [keywords] CHAR(128), 
+  [time] INT DEFAULT (0), 
+  CONSTRAINT [sqlite_autoindex_am_acount_cates_1] PRIMARY KEY ([id]));
 

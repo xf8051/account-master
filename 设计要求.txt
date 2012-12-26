@@ -33,16 +33,6 @@ CREATE TABLE [am_acount_type] (
   [name] CHAR(16), 
   CONSTRAINT [] PRIMARY KEY ([name]));
 
-CREATE TABLE [am_accounts] (
-  [myname] CHAR(64), 
-  [account_name] CHAR(32), 
-  [account_pwd] CHAR(32), 
-  [cate] INT DEFAULT (0), 
-  [user] INT DEFAULT (0), 
-  [level] INT DEFAULT (0), 
-  [time] INT DEFAULT (0), 
-  CONSTRAINT [] PRIMARY KEY ([user], [myname]));
-
 CREATE TABLE [am_users] (
   [id] INT, 
   [name] CHAR(32), 
@@ -54,4 +44,15 @@ CREATE TABLE [am_users] (
   [hotkey] INT DEFAULT (0), 
   [time] INT DEFAULT (0), 
   CONSTRAINT [sqlite_autoindex_am_users_1] PRIMARY KEY ([id]));
+
+CREATE TABLE [am_accounts] (
+  [myname] CHAR(64), 
+  [account_name] CHAR(32), 
+  [account_pwd] CHAR(32), 
+  [cate] INT DEFAULT (0), 
+  [user] INT DEFAULT (0), 
+  [level] INT DEFAULT (0), 
+  [comment] CHAR(128), 
+  [time] INT DEFAULT (0), 
+  CONSTRAINT [sqlite_autoindex_am_accounts_1] PRIMARY KEY ([user], [myname]));
 

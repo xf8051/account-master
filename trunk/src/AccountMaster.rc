@@ -46,6 +46,209 @@ END
 
 #endif    // APSTUDIO_INVOKED
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_LOGIN DIALOG DISCARDABLE  0, 0, 212, 129
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "用户登录"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "登录",IDOK,40,100,50,14
+    PUSHBUTTON      "取消",IDCANCEL,113,100,50,14
+    LTEXT           "用户名：",IDC_STATIC,11,37,33,8
+    LTEXT           "密码：",IDC_STATIC,19,55,25,8
+    EDITTEXT        IDC_EDIT1,46,34,100,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,46,53,100,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "注册",IDC_BUTTON1,150,34,50,14
+    PUSHBUTTON      "忘记密码",IDC_BUTTON2,150,53,50,14
+END
+
+IDD_REGISTER DIALOG DISCARDABLE  0, 0, 187, 129
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "用户注册"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "注册",IDOK,30,103,50,14
+    PUSHBUTTON      "取消",IDCANCEL,95,103,50,14
+    LTEXT           "用户名：",IDC_STATIC,21,17,33,8
+    LTEXT           "密码：",IDC_STATIC,29,37,25,8
+    LTEXT           "确认密码：",IDC_STATIC,13,57,41,8
+    LTEXT           "保护级别：",IDC_STATIC,13,77,41,8
+    EDITTEXT        IDC_EDIT1,58,15,115,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,58,35,115,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT3,58,55,115,14,ES_AUTOHSCROLL
+    COMBOBOX        IDC_COMBO1,58,75,48,50,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+END
+
+IDD_FORGETPWD2 DIALOG DISCARDABLE  0, 0, 187, 135
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "忘记密码 - 填写账户和密码"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "继续",IDOK,33,110,50,14
+    PUSHBUTTON      "取消",IDCANCEL,93,110,50,14
+    LTEXT           "用户名：WT                          保护等级：一般                      提示：请填写库中的3对账户和密码     剩余对数：3",
+                    IDC_STATIC,18,9,150,35
+    LTEXT           "账户种类：",IDC_STATIC,22,53,41,8
+    COMBOBOX        IDC_COMBO1,68,51,80,45,CBS_DROPDOWN | WS_VSCROLL | 
+                    WS_TABSTOP
+    LTEXT           "账户名：",IDC_STATIC,30,71,33,8
+    LTEXT           "账户密码：",IDC_STATIC,22,89,41,8
+    EDITTEXT        IDC_EDIT1,68,69,80,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT2,68,88,80,14,ES_AUTOHSCROLL
+END
+
+IDD_FORGETPWD1 DIALOG DISCARDABLE  0, 0, 177, 79
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "忘记密码 - 填写用户名"
+FONT 9, "宋体"
+BEGIN
+    DEFPUSHBUTTON   "继续",IDOK,33,57,50,14
+    PUSHBUTTON      "取消",IDCANCEL,93,57,50,14
+    LTEXT           "用户名：",IDC_STATIC,30,35,33,8
+    EDITTEXT        IDC_EDIT1,68,33,80,14,ES_AUTOHSCROLL
+    LTEXT           "请填写想要找回密码的用户",IDC_STATIC,30,11,97,8
+END
+
+IDD_FORGETPWD3 DIALOG DISCARDABLE  0, 0, 187, 135
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "忘记密码 - 显示找回密码"
+FONT 9, "宋体"
+BEGIN
+    PUSHBUTTON      "关闭",IDCANCEL,69,113,50,14
+    LTEXT           "您的密码：",IDC_STATIC,23,15,41,8
+    EDITTEXT        IDC_EDIT2,65,12,100,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_STATIC,"Static",SS_ETCHEDHORZ,13,35,160,1
+    GROUPBOX        "重设密码",IDC_STATIC,18,40,157,65
+    LTEXT           "密码：",IDC_STATIC,41,61,25,8
+    LTEXT           "确认密码：",IDC_STATIC,25,81,41,8
+    EDITTEXT        IDC_EDIT3,70,59,95,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT4,70,79,95,14,ES_AUTOHSCROLL
+END
+
+IDD_MAIN DIALOG DISCARDABLE  0, 0, 342, 245
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Account Master 主界面"
+MENU IDM_MAIN
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "List1",IDC_LIST1,"SysListView32",LVS_REPORT | WS_BORDER | 
+                    WS_TABSTOP,10,5,320,190
+    PUSHBUTTON      "添加账户",IDC_BUTTON1,43,209,50,14
+    PUSHBUTTON      "修改账户",IDC_BUTTON2,108,209,50,14
+    PUSHBUTTON      "删除账户",IDC_BUTTON3,178,209,50,14
+    PUSHBUTTON      "打开网站",IDC_BUTTON4,248,209,50,14
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_LOGIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 205
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 122
+    END
+
+    IDD_REGISTER, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 122
+    END
+
+    IDD_FORGETPWD2, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 128
+    END
+
+    IDD_FORGETPWD1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 170
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 72
+    END
+
+    IDD_FORGETPWD3, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 128
+    END
+
+    IDD_MAIN, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 335
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 238
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_REGISTER DLGINIT
+BEGIN
+    IDC_COMBO1, 0x403, 5, 0
+0xbbd2, 0xe3b0, "\000" 
+    IDC_COMBO1, 0x403, 5, 0
+0xbfc7, 0xa6c1, "\000" 
+    IDC_COMBO1, 0x403, 5, 0
+0xf8be, 0xd4b6, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDM_MAIN MENU DISCARDABLE 
+BEGIN
+    POPUP "管理用户"
+    BEGIN
+        MENUITEM "用户设置",                    ID_USER_SETTINGS
+        MENUITEM "注销用户",                    ID_USER_DEL
+    END
+    POPUP "存储账户"
+    BEGIN
+        MENUITEM "添加一个账户",                ID_ACCOUNT_ADD
+        MENUITEM "删除一个账户",                ID_ACCOUNT_DEL
+    END
+    POPUP "数据库"
+    BEGIN
+        MENUITEM "账户种类设置",                ID_DB_1
+        MENUITEM "账户类别设置",                ID_DB_2
+        MENUITEM SEPARATOR
+        MENUITEM "备份数据",                    ID_DB_BACKUP
+        MENUITEM "恢复数据",                    ID_DB_RESUME
+    END
+END
+
 #endif    // Chinese (P.R.C.) resources
 /////////////////////////////////////////////////////////////////////////////
 
